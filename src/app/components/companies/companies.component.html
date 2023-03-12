@@ -1,0 +1,19 @@
+<div class="interface">
+    <p class="interface__sort">
+        <img class="interface__svg" src="/assets/sort.svg">
+        Сортировать по
+        <ng-container *ngFor="let button of sortParams; last as isLast">
+            <button class="interface__param" [ngClass]="{active: button.isActive}" (click)="setParam(button.param)">
+                {{button.text}}
+            </button>
+            <span *ngIf="!isLast">/</span>
+        </ng-container>
+    </p>
+    <button id="update" class="interface__reload"><img class="interface__svg" src="assets/reload.svg">Обновить</button>
+    <a href="#" class="interface__button">Добавить компанию</a>
+</div>
+<ul class="companies">
+</ul>
+<div class="more">
+    <button class="more__button">Показать еще</button>
+</div>
