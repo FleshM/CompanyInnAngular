@@ -9,11 +9,21 @@
             <span *ngIf="!isLast">/</span>
         </ng-container>
     </p>
-    <button id="update" class="interface__reload"><img class="interface__svg" src="assets/reload.svg">Обновить</button>
-    <a href="#" class="interface__button">Добавить компанию</a>
+    <button class="interface__reload" (click)="updateCompanies()"><img class="interface__svg" src="assets/reload.svg">Обновить</button>
+    <a class="interface__button" routerLink="add-company">Добавить компанию</a>
 </div>
+
 <ul class="companies">
+    <li class="companies__company" *ngFor="let company of companies">
+        <div class="companies__wrapper">
+            <a class="companies__name">{{company.business_name}}</a>
+            <img class="companies__logo" src={{company.logo}} alt="Логотип {{company.business_name}}">
+        </div>
+        <p class="companies__industry">{{company.industry}}</p>
+        <p class="companies__type">{{company.type}}</p>
+    </li>
 </ul>
-<div class="more">
-    <button class="more__button">Показать еще</button>
+
+<div class="more" *ngIf="!isLoading">
+    <button class="more__button" (click)="getCompanies()">Показать еще</button>
 </div>

@@ -1,0 +1,21 @@
+<form class="add">
+    <h2 class="add__title">Добавление новой компании</h2>
+    <span class="add__msg"></span>
+    <input class= "add__input" type="text" placeholder="Название" autofocus autocomplete="off" required maxlength="15">
+    <select class="add__select" required>
+        <option value="">Вид деятельности</option>
+        <option value="Лесоводство и лесозаготовки">Лесоводство и лесозаготовки</option>
+        <option value="Добыча угля">Добыча угля</option>
+        <option value="Производство мебели">Производство мебели</option>
+        <option value="Научные исследования и разработки">Научные исследования и разработки</option>
+        <option value="Деятельность общественных организаций">Деятельность общественных организаций</option>
+    </select>
+    <div class="add__checkbox">
+        <input class="add__checkbox-box" type="checkbox" id="checkbox">
+        <label class="add__checkbox-label" for="checkbox">Присутствие на Российском рынке</label>
+    </div>
+    <div class="add__wrapper">
+        <button class= "add__button" type="submit">Добавить</button>
+        <a class= "add__cancel" >Отмена</a>
+    </div>
+</form>

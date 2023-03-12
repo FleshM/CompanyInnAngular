@@ -45,7 +45,7 @@ export class RegistrationComponent implements OnInit{
   async submitHandler() {
     this.registrationForm.markAllAsTouched();
     if (this.registrationForm.valid) {
-      this.localStorageService.save('user', JSON.stringify(this.registrationForm.value));
+      this.localStorageService.save('user', this.registrationForm.value);
       this.router.navigate(['/companies'])
     }
   }
