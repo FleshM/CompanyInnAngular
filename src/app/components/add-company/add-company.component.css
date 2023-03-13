@@ -112,5 +112,12 @@
     position: relative;
     color: red;
     font-size: 0.8em;
-    bottom: 20px;
+    top: -12px;
+}
+
+.add__select-msg {
+    position: relative;
+    top: 12px;
+    color: red;
+    font-size: 0.8em;
 }

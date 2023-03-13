@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http'
-import { LocalStorageService } from './local-storage.service';
+
 import { Company } from '../../company';
 
 @Injectable({
@@ -9,9 +9,7 @@ import { Company } from '../../company';
 })
 export class CompaniesService {
 
-  constructor(
-    private http: HttpClient, 
-    private localStorageService: LocalStorageService) { }
+  constructor(private http: HttpClient) { }
 
   getCompanies(): Observable<Company[]> {
     return this.http.get<Company[]>(`https://random-data-api.com/api/company/random_company?size=5`);

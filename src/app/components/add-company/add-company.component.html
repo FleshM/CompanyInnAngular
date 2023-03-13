@@ -1,8 +1,10 @@
-<form class="add">
+<form class="add" [formGroup]="addForm" (ngSubmit)="submitHandler()">
     <h2 class="add__title">Добавление новой компании</h2>
     <span class="add__msg"></span>
-    <input class= "add__input" type="text" placeholder="Название" autofocus autocomplete="off" required maxlength="15">
-    <select class="add__select" required>
+    <input class= "add__input" formControlName="businessName" type="text" placeholder="Название" autofocus autocomplete="off">
+    <div class="add__msg" *ngIf="businessName!.hasError('required') && businessName!.touched">Введите название</div>
+    <div class="add__msg" *ngIf="businessName!.hasError('maxlength')">Название не может быть длинее 15 символов</div>
+    <select class="add__select" (change)="changeIndustry($event)" formControlName="industry">
         <option value="">Вид деятельности</option>
         <option value="Лесоводство и лесозаготовки">Лесоводство и лесозаготовки</option>
         <option value="Добыча угля">Добыча угля</option>
@@ -10,12 +12,13 @@
         <option value="Научные исследования и разработки">Научные исследования и разработки</option>
         <option value="Деятельность общественных организаций">Деятельность общественных организаций</option>
     </select>
+    <div class="add__select-msg" *ngIf="industry!.invalid && industry!.touched">Выберите вид деятельности</div>
     <div class="add__checkbox">
-        <input class="add__checkbox-box" type="checkbox" id="checkbox">
+        <input class="add__checkbox-box" formControlName="presence" type="checkbox" id="checkbox">
         <label class="add__checkbox-label" for="checkbox">Присутствие на Российском рынке</label>
     </div>
     <div class="add__wrapper">
         <button class= "add__button" type="submit">Добавить</button>
-        <a class= "add__cancel" >Отмена</a>
+        <a class= "add__cancel" routerLink="/companies">Отмена</a>
     </div>
 </form>
