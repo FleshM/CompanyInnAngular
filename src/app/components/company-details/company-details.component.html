@@ -1,0 +1,24 @@
+<div class="about">
+    <a class="about__back" routerLink="/companies"><img src="/assets/back.svg">Назад</a>
+    <div class="about__block" *ngIf="company">
+        <div class="about__wrapper">
+            <div class="about__information">
+                <h2 class="about__name">{{company.business_name}}</h2>
+                <p class="about__catchphrase">{{company.catch_phrase}}</p>
+                <p class="about__industry">{{company.industry}}</p>
+                <p class="about__type">{{company.type}}</p>
+                <div class="about__phone">
+                    <img src="/assets/phone.svg">
+                    <p id="number">{{company.phone_number}}</p>
+                </div>
+            </div>
+            <img class="about__logo" src="{{company.logo}}">
+        </div> 
+        <p class="about__address">{{company.full_address}}</p>
+        <div class="about__map">
+            <ya-map [center]="[company.latitude, company.longitude]" [zoom]="10">
+                <ya-placemark [options]="{iconColor: 'black'}" [geometry]="[company.latitude, company.longitude]"></ya-placemark>
+            </ya-map>
+        </div>
+    </div>
+</div>

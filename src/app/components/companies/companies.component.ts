@@ -33,6 +33,7 @@ export class CompaniesComponent implements OnInit{
       this.companies = [];
       this.getCompanies();
     }
+    this.isLoading = false;
   }
 
   setParam(param: string): void {
